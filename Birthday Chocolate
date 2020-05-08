@@ -1,0 +1,26 @@
+ import java.util.Scanner;
+ public class Solution{
+     public static void main(String []args){
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       int [] s=new int[n];
+    for(int i=0;i<s.length;i++){
+        s[i]=sc.nextInt();
+    }
+
+       int d=sc.nextInt();
+       int m=sc.nextInt();
+       int c=0;
+       for(int j=0;j<s.length;j++){
+           int sn=0; 
+          for(int p=1,k=j;p<m+1 && k<s.length;p++,k++){
+            sn+=s[k];
+             
+          }
+        if(sn==d){
+         c++;
+        }
+       }
+       System.out.println(c);
+     }
+ }
