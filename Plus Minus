@@ -1,0 +1,29 @@
+ import java.util.Scanner;
+ public class Plus_minus{
+     public static void main(String [] args){
+         Scanner sc=new Scanner(System.in);
+         int t=sc.nextInt();
+         int [] a=new int[t];
+         for(int i=0;i<t;i++){
+            a[i]=sc.nextInt();
+         }
+         int p =0;int n =0;int z =0;
+         for(int i=0;i<t;i++){
+             if(a[i]==0)
+               z++;
+               if(a[i]>0)
+               p++;
+               if(a[i]<0)
+               n++;
+         }
+         double m=t;
+          double x= p/m;
+         double b= n/m;
+         double c= z/m;
+         System.out.printf("%.6f",x);
+         System.out.println();
+         System.out.printf("%.6f",b);
+         System.out.println();
+         System.out.printf("%.6f",c);
+     }
+ }
