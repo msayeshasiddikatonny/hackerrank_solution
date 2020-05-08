@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    
+        public static String makeString(char [] a){
+          String s="";
+          for(int i=0;i<a.length;i++){
+            s+=a[i];
+          }
+          return s;
+        }
+        public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();
+        String b=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        System.out.println(a.length()+b.length());
+        if(a.compareTo(b)>0){
+          System.out.println("Yes");
+        }
+        else{
+          System.out.println("No");
+        }
+        
+        char [] ac=a.toCharArray();
+        int temp=(int)ac[0]-32;
+        ac[0]=(char)temp;
+        char [] bc=b.toCharArray();
+        temp=(int)bc[0]-32;
+        bc[0]=(char)temp;
+        a=makeString(ac);
+        b=makeString(bc);
+        System.out.println(a+" "+b);
+        
+    }
+}
