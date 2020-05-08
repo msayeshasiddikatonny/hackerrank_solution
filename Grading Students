@@ -1,0 +1,49 @@
+
+import java.util.Scanner;
+public class solution{
+public static void main(String []args){
+Scanner sc=new Scanner (System.in);
+int t=sc.nextInt();
+int []a=new int[t];
+for(int j=0;j<t;j++){
+   a[j]=sc.nextInt();
+}
+for(int i=0;i<t;i++){
+    if(a[i]<101 && a[i]>-1){
+        if(a[i]<38)
+        System.out.println(a[i]);
+        else if(a[i]==38 || a[i]==39)
+        System.out.println(40);
+        else if(a[i]==43 || a[i]==44)
+        System.out.println(45);
+        else if(a[i]==48 || a[i]==49)
+        System.out.println(50);
+        else if(a[i]==53 || a[i]==54)
+        System.out.println(55);
+        else if(a[i]==58 || a[i]==59)
+        System.out.println(60);
+        else if(a[i]==63 || a[i]==64)
+        System.out.println(65);
+        else if(a[i]==68 || a[i]==69)
+        System.out.println(70);
+        else if(a[i]==73 || a[i]==74)
+        System.out.println(75);
+        else if(a[i]==78 || a[i]==79)
+        System.out.println(80);
+        else if(a[i]==83 || a[i]==84)
+        System.out.println(85);
+        else if(a[i]==88 || a[i]==89)
+        System.out.println(90);
+        else if(a[i]==93 || a[i]==94)
+        System.out.println(95);
+        else if(a[i]==98 || a[i]==99)
+        System.out.println(100);
+        else{
+        System.out.println(a[i]);
+        }
+    }
+
+}
+}
+}
+
