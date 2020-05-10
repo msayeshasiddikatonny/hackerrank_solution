@@ -1,0 +1,74 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the appendAndDelete function below.
+    static String appendAndDelete(String s, String t, int k) {
+
+  char  [] s1=s.toCharArray();
+     char  [] t1=t.toCharArray();
+     int p=0;
+     if(s1.length>t1.length)
+     p=t1.length;
+     else
+     p=s1.length;
+     
+     int m=0;
+      
+      
+     for(int i=0;i<p;i++){
+          
+         if(s1[i]==t1[i]){
+         m++;
+         }
+          else{
+          break;
+           }
+     }
+      
+      
+     int needRemove=s1.length-m;
+     int needAppend=t1.length-m;
+     int r=needRemove+needAppend;
+      
+     int rem=k-r;
+      
+     if(rem>-1 && (rem%2==0 || rem==0))   {
+     return "Yes";
+      }
+      else if((needRemove==s1.length && r<=k))
+      return "Yes";
+      else if((s1.length+t1.length<k))
+      return "Yes";
+      else
+      return "No";
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = scanner.nextLine();
+
+        String t = scanner.nextLine();
+
+        int k = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        String result = appendAndDelete(s, t, k);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
