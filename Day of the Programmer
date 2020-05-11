@@ -1,0 +1,57 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+public class Solution {
+
+    // Complete the dayOfProgrammer function below.
+    static String dayOfProgrammer(int y) {
+        String s="";
+        if(y>=1700 && y<=1917){// julian
+         if(y%4==0){ //leap year
+          s="12.09."+y;
+         }
+         else{ //not leap year
+          s="13.09."+y;
+         }
+        }
+        else{ // Gregorian calendar
+         if(y==1918){
+          s="26.09."+y;
+         }
+         else{
+          if(y%400==0 || (y%4==0 && y%100!=0)){
+           s="12.09."+y;
+          }
+          else{
+              s="13.09."+y;
+          }
+         }
+        }
+
+       return s;
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int year = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String result = dayOfProgrammer(year);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
