@@ -1,0 +1,50 @@
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the kaprekarNumbers function below.
+    static void kaprekarNumbers(int p, int q) {
+int f=0;
+for(int i=p;i<q+1;i++){
+    
+ double temp= (double)i*i; 
+// System.out.println("temp= "+temp);
+int d = (int) (Math.log10(i) + 1);
+//System.out.println("d= "+d);
+int div=(int)Math.pow(10,d);
+//System.out.println("div="+div);
+int l=(int)(temp/(div));
+//System.out.println("l= "+l);
+int r=(int)(temp%div);
+//System.out.println("r= "+r);
+if((l+r)==i){
+    System.out.print(i+" ");f=1;
+}
+
+    }
+    if(f==0){
+System.out.println("INVALID RANGE");
+}
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int p = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int q = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        kaprekarNumbers(p, q);
+
+        scanner.close();
+    }
+}
