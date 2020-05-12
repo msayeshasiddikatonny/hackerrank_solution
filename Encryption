@@ -1,0 +1,71 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the encryption function below.
+    static String encryption(String s) {
+int row=(int)Math.pow(s.length(),0.5);
+int col=row;
+
+if(s.length()>row*row)
+ col=row+1;
+ 
+
+if(row*col<s.length()){
+    
+        row++;
+    
+    
+}
+char [] [] c= new char[row][col];
+ 
+ int k=0;
+ 
+ for(int i=0;i<row;i++){
+     for(int j=0;j<col;j++){
+          if(k<s.length()){
+          c[i][j]=s.charAt(k);
+          //System.out.println(c[i][j]);
+          k++;
+     }
+ }
+ }
+  
+  String sr="";
+  char c1 = '\u0000'; 
+for(int i=0;i<col;i++){
+     for(int j=0;j< row;j++){
+         if(c[j][i]!=c1){
+         sr+=(c[j][i]); 
+         }
+     }
+     sr+=" ";
+ }
+   
+ return  sr;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = scanner.nextLine();
+
+        String result = encryption(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
