@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    static boolean isAnagram(String a, String b) {
+        // Complete the function
+        int [] a1=new int[26];
+        int [] b1=new int[26];
+        if(a.length()==b.length()){
+        for(int i=0;i<a.length();i++){
+         int av=a.codePointAt(i);
+         if(av<97){
+          a1[av-65]++;
+         }
+         else{
+          a1[av-97]++;
+         }
+         int bv=b.codePointAt(i);
+         if(bv<97){
+          b1[bv-65]++;
+         }
+         else{
+          b1[bv-97]++;
+         }
+        }
+        }
+        else{
+            return false;
+        }
+        for(int j=0;j<26;j++){
+         if(a1[j]==b1[j]){
+
+         }
+         else{
+             return false;
+         }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
